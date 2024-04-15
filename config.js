@@ -22,10 +22,10 @@ global.prems = ['201030825867'];
 
 global.packname = '𝑩𝑶𝑻⃟☣️مالك';
 global.author = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
-global.wm = ' ألخ ــط ــر|﴿01030825867﴾𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
-global.titulowm = ' ألخ ــط ــر|﴿01030825867﴾𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
-global.titulowm2 = ` ألخ ــط ــر|﴿01030825867﴾𝑴𝑨𝑳𝑰𝑲🍷🇰🇼`
-global.igfg = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
+global.wm = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
+global.titulowm = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
+global.titulowm2 = `𝑴𝑨𝑳𝑰𝑲🍷🇰🇼`
+global.igfg = ' ألخ ــط ــر|﴿01030825867﴾𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
 global.wait = '*|🏃| loading...*\n*نحاول تلبية طلبكم لا تستعجلوا* ♥\.';
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
