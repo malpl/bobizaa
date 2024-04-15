@@ -6,13 +6,13 @@ let handler = async (m, { conn }) => {
 │🤖 أتمنى أنك بخير ♥ البوت أون لاين الآن 
 يمكنك إستخدامه عبر كتابة menu.
 ╰────────────────────
-*─[ BY NOUREDDINE_OUAFY ]*🌟✨
+*─[𝑩𝑶𝑻⃟☣️مالك]*🌟✨
 `.trim()
   m.reply(caption)
 }
 handler.help = ['alive']
 handler.tags = ['infobot']
-handler.command = /^(alive)$/i
+handler.command = /^(د)$/i
 
 
 export default handler
