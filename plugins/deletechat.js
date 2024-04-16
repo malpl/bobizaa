@@ -6,6 +6,6 @@ async function handler(m, { conn }) {
 }
 handler.help = ['deletechat'],
 handler.tags = ['owner'],
-handler.command = /^(deletechat)$/i
+handler.command = /^(حذف)$/i
 handler.owner = true
 export default handler
