@@ -26,5 +26,5 @@ await m.reply('*مشكلة أعد المحاولة لاحقا *')
 }}}
 handler.help = ["translate"]
 handler.tags = ["tools"]
-handler.command = /^(translate|tr)$/i
+handler.command = /^(ترجم|tr)$/i
 export default handler
