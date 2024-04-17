@@ -21,14 +21,14 @@ let tags = {
   'uploader':'‎‎ رفع الملفات‎',
 }
 const defaultMenu = {
-  before: `السلام عليكم 👋. 
+  before: `<https://wa.me/+201030825867><رقم المطور> 👋. 
 
 ┏━━ salam  *%name*
 👥 *Total user:* %totalreg 
 ⏰ *Uptime:* %muptime  
 ┗━━━━━━━━━━⬣
 %readmore
-  ≡ *𝑩𝑶𝑻⃟☣️مالك | M E N U*
+  ≡ *𝑩𝑶𝑻⃟☣️𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 | M E N U*
 `.trimStart(),
   header: '┏━━⊜ *_%category_* ',
   body: '┃⋄ %cmd %isdiamond %isPremium',
@@ -137,7 +137,7 @@ text: text,
 contextInfo: {
 externalAdReply: {
 title: '𝑩𝑶𝑻⃟☣️مالك',
-body: "أول بوت واتساب في العالم العربي 💖",
+body: "https://wa.me/+201030825867",
 thumbnailUrl: 'https://telegra.ph/file/e20babc427bc4f7f9bb45.jpg',
 sourceUrl: ' ألخ ــط ــر|﴿01030825867﴾𝑴𝑨𝑳𝑰𝑲🍷🇰🇼',
 mediaType: 1,
@@ -158,7 +158,7 @@ renderLargerThumbnail: true
 }
 handler.help = ['menu']
 handler.tags = ['infobot']
-handler.command = ['menu','b','list'] 
+handler.command = ['menu','اوامر','الاوامر'] 
 handler.register = false
 
 
