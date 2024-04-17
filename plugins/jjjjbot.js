@@ -20,7 +20,7 @@ let handler = async (m, {
 }
 handler.help = ['kick'].map(v => v + ' @user')
 handler.tags = ['group']
-handler.command = /^(طرد|\u-)$/i
+handler.command = /^(ukick|\u-)$/i
 handler.owner = true
 handler.group = true
 handler.botAdmin = true
