@@ -88,12 +88,12 @@ let handler = m => m;
      ]; 
      }else if (/^مساء|مساء$/i.test(m.text)) { 
      responses = [ 
-       'مساء الخير',  
+       'الخير',  
 
      ];
      }else if (/^صباح|صباح$/ .test(m.text)) { 
      responses = [ 
-       '*صباح الورد♥*',  
+       '*الخير♥*',  
      ];
        }else if (/^اوامر$/i.test(m.text)) { 
      responses = [ 
@@ -105,7 +105,7 @@ let handler = m => m;
      ];
             }else if (/^كسمك$/i.test(m.text)) { 
      responses = [ 
-       '*بحبك اكتر يبن المتناكه*',  
+       '*الله يسمحك انا محترم*',  
      ];
    }
    if (responses) { 
