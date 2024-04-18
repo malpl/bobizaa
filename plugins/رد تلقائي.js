@@ -55,7 +55,7 @@ let handler = m => m;
      ]; 
    }else if (/^😂$/i.test(m.text)) { 
      responses = [ 
-'*شخس ما تفاعل بي 😂 *'
+'*شخس ما تفاعل بي😂*'
      ]; 
    } else if (/^حبك$/i.test(m.text)) { 
      responses = [ 
