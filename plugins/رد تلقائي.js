@@ -26,7 +26,6 @@ let handler = m => m;
  }else if (/^بوت|البوت$/i.test(m.text)) { 
      responses = [ 
 '*اسمي خطر*'
-'*<https://wa.me/+201030825867>رقم مطوري*',
      ]; 
    }else if (/^بوتي$/i.test(m.text)) { 
      responses = [ 
@@ -53,7 +52,8 @@ let handler = m => m;
      responses = [ 
        '*مـي تو 🙂🫀*',
       '*اموت انا 🙂🫀*',
-      '*متيجي*',  ]; 
+      '*متيجي*',
+     ]; 
     
    }else if (/^😂$/i.test(m.text)) { 
      responses = [ 
