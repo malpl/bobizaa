@@ -5,7 +5,7 @@ if (m.text.includes('gore') || m.text.includes('cp')|| m.text.includes('porno')|
 const res = await googleImage(text)
 let image = await res.getRandom()
 let link = image
-conn.sendFile(m.chat, link, 'error.jpg', `🔎 *النتيجه ل:* ${text}\n🔗 *من* ${link}\n🌎 **﴾https://wa.me/+201030825867﴿<𝑴𝑨𝑳𝑰𝑲🍷🇰🇼>*`, m)}
+conn.sendFile(m.chat, link, 'error.jpg', `🔎 *النتيجه ل:* ${text}\n🔗 *من* ${link}\n🌎 *https://wa.me/+201030825867 𝑴𝑨𝑳𝑰𝑲🍷🇰🇼*`, m)}
 //let captionn = `🔎 *𝚁𝙴𝚂𝚄𝙻𝚃𝙰𝙳𝙾 𝙳𝙴:* ${text}\n🔗 *𝙻𝙸𝙽𝙺* ${link}\n🌎 *𝙱𝚄𝚂𝙲𝙰𝙳𝙾𝚁:* Google`
 //conn.sendButton(m.chat, captionn, author, link, [['🔄 𝚂𝙸𝙶𝚄𝙸𝙴𝙽𝚃𝙴 🔄', `#imagen ${text}`]], m)}
 handler.help = ['gimage <query>', 'imagen <query>']
