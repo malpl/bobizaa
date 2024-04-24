@@ -26,7 +26,7 @@ global.wm = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
 global.titulowm = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
 global.titulowm2 = `𝑴𝑨𝑳𝑰𝑲🍷🇰🇼`
 global.igfg = '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼';
-global.wait = '*|🏃| loading...*\n*نحاول تلبية طلبكم لا تستعجلوا* ♥\.';
+global.wait = '*|🏃| loading...*\n*سيتم تنفيذ الامر* ♥\.';
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
 global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png');
@@ -45,7 +45,7 @@ global.mes = d.toLocaleDateString('en', {month: 'long'});
 global.año = d.toLocaleDateString('en', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `${dia} ${fecha}\nBOBIZA`;
+global.wm2 = `${dia} ${fecha}\nmalik`;
 global.gt = '𝑩𝑶𝑻⃟☣️مالك';
 global.mysticbot = 'The 𝑩𝑶𝑻⃟☣️مالك';
 global.md = '201030825867';
