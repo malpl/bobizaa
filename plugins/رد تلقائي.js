@@ -7,7 +7,7 @@ let handler = m => m;
 
    let chat = global.db.data.chats[m.chat]; 
    let responses; 
-   if (/^زبي|كس|كسمك|يبن المتناكه$/i.test(m.text)) { 
+   if (/^زبي|كسمك|يبن المتناكه$/i.test(m.text)) { 
      responses = [ 
  '*🧛*',
  '*☣️*',
