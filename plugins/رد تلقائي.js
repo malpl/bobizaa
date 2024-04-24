@@ -7,7 +7,7 @@ let handler = m => m;
 
    let chat = global.db.data.chats[m.chat]; 
    let responses; 
-   if (/^زبي|كس|سد|كسمك|يبن المتناكه$/i.test(m.text)) { 
+   if (/^زبي|كس|كسمك|يبن المتناكه$/i.test(m.text)) { 
      responses = [ 
  '*🧛*',
  '*☣️*',
@@ -111,9 +111,11 @@ let handler = m => m;
      responses = [ 
        '*لا تنسى ال .*',  
      ];
-            }else if (/^|$/i.test(m.text)) { 
+            }else if (/^معفن|بضان|الادب|قرف$/i.test(m.text)) { 
      responses = [ 
-       '**',  
+       '*😔*',
+      '*⚠️*',
+      '*🔸*',
      ];
             }else if (/^بموت$/i.test(m.text)) { 
      responses = [ 
