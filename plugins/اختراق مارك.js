@@ -5,7 +5,7 @@ const handler = async (m, { conn, command, text }) => {
   const getRandomMessage = (messages) => messages[Math.floor(Math.random() * messages.length)];
   const response =
     `✦•━━━━ ∘⊰❄⊱∘ ━━━━•✦\n` +
-    `${text} تـــم اخــتــراقــك بـنـجـاح ارســال بـيـانـاتـك لـلـخطـر` +
+    `${text} <𝑴𝑨𝑳𝑰𝑲🍷🇰🇼>تـــم اخــتــراقــك بـنـجـاح ارســال بـيـانـاتـك` +
     `\n✦•━━━━ ∘⊰❄⊱∘ ━━━━•✦` +
     ``    
 
