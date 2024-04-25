@@ -67,7 +67,7 @@ let handler = m => m;
     
    }else if (/^😂$/i.test(m.text)) { 
      responses = [ 
-'*شخص ما تفاعل بي😂*'
+'*🧛*'
      ]; 
    } else if (/^حبك$/i.test(m.text)) { 
      responses = [ 
@@ -90,7 +90,7 @@ let handler = m => m;
      ];
      }else if (/^❤|♥$/i.test(m.text)) { 
      responses = [ 
-       '*شخص ما تفاعل بي ♥*',  
+       '*👾*',  
 
      ];
      }else if (/^اهلا$/i.test(m.text)) { 
