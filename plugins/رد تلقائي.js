@@ -4,7 +4,6 @@
 
 let handler = m => m; 
  handler.all = async function (m) { 
- await conn.sendMessage(m.chat, { react: { text: '☣️', key: m.key } })
 
    let chat = global.db.data.chats[m.chat]; 
    let responses; 
