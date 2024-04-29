@@ -9,10 +9,10 @@ let handler = async (m, { conn }) => {
 يمكنك إستخدامه عبر كتابة menu.
 *೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
  ده رقمي الاساسي بس طاير الي هيفكو هعملو بوت 🧛💜
- ﴾*https://wa.me/+201030825867*﴿
+ *﴾https://wa.me/+201030825867﴿*
 *೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
   ده الروم بتاعي 🧛
- ﴾*https://chat.whatsapp.com/CUyxsz7kb7nCJLIocNoGeC*﴿🧛💜
+ *﴾https://chat.whatsapp.com/CUyxsz7kb7nCJLIocNoGeC﴿*🧛💜
  *೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
  › FẻNŚsh GaMẻ ~🧛
 ╰────────────────────
