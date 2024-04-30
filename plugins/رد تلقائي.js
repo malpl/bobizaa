@@ -64,7 +64,7 @@ let handler = m => m;
       '*💜*',
      ]; 
     
-   }else if (/^😂$/i.test(m.text)) { 
+   }else if (/^باي$/i.test(m.text)) { 
      responses = [ 
 '*🧛*'
      ]; 
@@ -87,7 +87,7 @@ let handler = m => m;
        'هاي',  
 
      ];
-     }else if (/^❤|♥$/i.test(m.text)) { 
+     }else if (/^سيفووني|سيفني|سيفيني|سيفتك$/i.test(m.text)) { 
      responses = [ 
        '*👾*',  
 
@@ -108,7 +108,7 @@ let handler = m => m;
      ];
        }else if (/^اوامر$/i.test(m.text)) { 
      responses = [ 
-       ${conn.getName(m.sender)}!',  
+      '*اكتب .اوامر*',  
      ];
             }else if (/^يتي|حبني$/i.test(m.text)) { 
      responses = [ 
