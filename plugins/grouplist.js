@@ -47,7 +47,7 @@ const handler = async (m, { conn, usedPrefix, args }) => {
   }
 };
 
-handler.menu = ['grouplist'];
+handler.menu = ['بارتي'];
 handler.tags = ['tools'];
 handler.command = /^(grouplist)$/i;
 export default handler;
