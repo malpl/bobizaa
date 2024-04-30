@@ -16,7 +16,7 @@ let handler = async (m, {
         throw eror
     }
 }
-handler.help = ["bobiz"]
+handler.help = ["malik <01030825867>"]
 handler.tags = ["sticker"]
 handler.command = /^(bobiz)$/i
 
