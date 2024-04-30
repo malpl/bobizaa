@@ -189,7 +189,7 @@ let tags = {
     throw e
   }
 }
-handler.help = ['قسم الملصقات']
+handler.help = ['استيكرات']
 handler.tags = ['categorie']
 handler.command = /استيكرات$/i
 export default handler
