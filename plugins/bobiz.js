@@ -8,7 +8,7 @@ let handler = async (m, {
 }) => {
     await m.reply(wait)
     let res = await YesNo()
-    let stiker = await createSticker(false, res.image, "bobiza ", (res.answer).toUpperCase(), 30)
+    let stiker = await createSticker(false, res.image, "malik <01030825867> ", (res.answer).toUpperCase(), 30)
         
     try {
         await m.reply(stiker)
