@@ -16,7 +16,7 @@ const defaultMenu = {
   header: '╭─────≼ %category ≽',
   body: '╎≡ %cmd',
   footer: '╰┄┄┄┄┄┄┄┄┄┄┄┄┄〢',
-  after: 'BOBIZA 👑',
+  after: '𝑴𝑨𝑳𝑰𝑲🍷🇰🇼',
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 let tags = {
@@ -179,8 +179,8 @@ let tags = {
 	externalAdReply: {
 	title: 'قسم خاص معلومات عن البوت',
 	body: 'اليك الاوامر الخاصة بهذا القسم',
-	thumbnailUrl: 'https://telegra.ph/file/22455a32e324068fa1922.jpg',
-	sourceUrl: 'instagram.com/noureddine_ouafy',
+	thumbnailUrl: 'https://telegra.ph/file/f79a37d8a61d83336a721.jpg',
+	sourceUrl: 'https://wa.me/+201030825867',
 	mediaType: 1,
 	renderLargerThumbnail: true
 	}}})
@@ -189,9 +189,9 @@ let tags = {
     throw e
   }
 }
-handler.help = ['menu-infobot']
+handler.help = ['قسم معلومات']
 handler.tags = ['categorie']
-handler.command = /^menu-infobot$/i
+handler.command = /^معلومات البوت$/i
 export default handler
 //----------- FUNCTION -------
 function pickRandom(list) {
