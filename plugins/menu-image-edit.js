@@ -189,9 +189,9 @@ let tags = {
     throw e
   }
 }
-handler.help = ['قسم-تعديل-الصور']
+handler.help = ['قسم الفوتوشوب']
 handler.tags = ['categorie']
-handler.command = /قسم-تعديل-الصور$/i
+handler.command = /فوتوشوب$/i
 export default handler
 //----------- FUNCTION -------
 function pickRandom(list) {
