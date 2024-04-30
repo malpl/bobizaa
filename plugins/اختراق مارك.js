@@ -39,7 +39,7 @@ var hawemod = [
  }
 loading()    
 };
-handler.help = ['love'];
+handler.help = ['اخترق'];
 handler.tags = ['fun'];
 handler.command = /^(اختراق|اخترق|تهكير)$/i;
 handler.rowner = true
