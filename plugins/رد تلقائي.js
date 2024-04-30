@@ -108,7 +108,7 @@ let handler = m => m;
      ];
        }else if (/^اوامر$/i.test(m.text)) { 
      responses = [ 
-       '*لا تنسى ال .*',  
+       '*${conn.getName(m.sender)}!*',  
      ];
             }else if (/^يتي|حبني$/i.test(m.text)) { 
      responses = [ 
