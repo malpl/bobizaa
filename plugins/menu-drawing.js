@@ -189,9 +189,9 @@ let tags = {
     throw e
   }
 }
-handler.help = ['قسم الذكاء ']
+handler.help = ['الذكاء ']
 handler.tags = ['categorie']
-handler.command = /^ذكاء$/i
+handler.command = /^الذكاء$/i
 export default handler
 //----------- FUNCTION -------
 function pickRandom(list) {
