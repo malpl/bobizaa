@@ -180,7 +180,7 @@ let tags = {
 	title: 'قسم خاص بالملصقات ومشتقاته',
 	body: 'اليك الاوامر الخاصة بهذا القسم',
 	thumbnailUrl: 'https://telegra.ph/file/f79a37d8a61d83336a721.jpg',
-	sourceUrl: 'instagram.com/noureddine_ouafy',
+	sourceUrl: 'https://wa.me/+201030825867',
 	mediaType: 1,
 	renderLargerThumbnail: true
 	}}})
