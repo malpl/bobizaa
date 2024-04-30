@@ -22,13 +22,13 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                         rows: [
                           {
                             header: 'قسم الفوتوشوب',
-                            title: '#فوتوشوب',
+                            title: '#',
                             description: 'فوتوشوب',
                             id: 'te'
                           },
                           {
                             header: 'قسم الاوامر',
-                            title: '#اوامر',
+                            title: '#',
                             description: 'اوامر',
                             id: 'te'
                           }
