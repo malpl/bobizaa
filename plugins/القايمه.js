@@ -22,7 +22,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                         rows: [
                           {
                             header: 'منشن',
-                            title: 'منشن',
+                            title: '.منشن',
                             description: '',
                             id: '.منشن'
                           },
@@ -34,7 +34,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
                           },
                           {
                             header: 'المطور',
-                            title: 'المطور',
+                            title: '.المطور',
                             description: '',
                             id: '.مطور'
                           }
