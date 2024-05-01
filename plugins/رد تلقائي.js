@@ -7,7 +7,11 @@ let handler = m => m;
 
    let chat = global.db.data.chats[m.chat]; 
    let responses; 
-   if (/^خطر|مالك$/i.test(m.text)) { 
+   if (/^لينك|الينك$/i.test(m.text)) { 
+     responses = [ 
+ '*https://chat.whatsapp.com/CUyxsz7kb7nCJLIocNoGeC*',
+     ]; 
+   }else if (/^خطر|مالك$/i.test(m.text)) { 
      responses = [ 
 '*هاي اكتب نقطه اوامر لعرض اوامري*',
 '*𝑴𝑨𝑳𝑰𝑲🍷🇰🇼<✳️ولايات الخطر المتحده*',
@@ -30,12 +34,10 @@ let handler = m => m;
    }else if (/^ابني$/i.test(m.text)) { 
      responses = [ 
 '*بابا مالك😔*'
-'*بابا*',
-'*قلب ا ابنك*',
      ];
        }else if (/^اوامر$/i.test(m.text)) { 
      responses = [ 
-       '*لا تنسى ال .*', 
+      '*اكتب .اوامر*',  
      ];
    }
    if (responses) { 
@@ -46,3 +48,4 @@ let handler = m => m;
  }; 
 
  export default handler;
+           
