@@ -12,7 +12,7 @@ try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'شغل') {
 additionalText = 'audio'
 } else if (command === 'play2') {
 additionalText = 'video'}
@@ -27,7 +27,7 @@ let texto1 = `📍<𝑴𝑨𝑳𝑰𝑲🍷🇰🇼>📍
 ☆ _𝙴𝙽𝚅𝙸𝙰𝙽𝙳𝙾 ${additionalText}, 𝙴𝚂𝙿𝙴𝚁𝙴 𝚄𝙽𝙾𝚂 𝚂𝙴𝙶𝚄𝙽𝙳𝙾𝚂．．．_`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: wm, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 
-if (command == 'play|شغل|اغنيه|اغنية|مهرجان') {        
+if (command == 'شغل') {        
 try {
 let q = '128kbps'
 let v = yt_play[0].url
