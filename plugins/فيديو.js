@@ -12,12 +12,12 @@ try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play|شغل|اغنيه|اغنية|مهرجان') {
+if (command === 'play') {
 additionalText = 'audio'
 } else if (command === 'play2') {
 additionalText = 'video'}
 
-let texto1 = `📍ʟᴏʙᴏ-ʙᴏᴛ-ʟɪᴛᴇ📍
+let texto1 = `📍<𝑴𝑨𝑳𝑰𝑲🍷🇰🇼>📍
 ☆ 📑 𝐓𝐢𝐭𝐮𝐥𝐨: ${yt_play[0].title}
 ☆ 🎼 𝐃𝐮𝐫𝐚𝐜𝐢𝐨𝐧: ${secondString(yt_play[0].duration.seconds)}
 ☆ 🗓️ 𝐕𝐢𝐬𝐭𝐚𝐬: ${`${MilesNumber(yt_play[0].views)}`}
@@ -27,7 +27,7 @@ let texto1 = `📍ʟᴏʙᴏ-ʙᴏᴛ-ʟɪᴛᴇ📍
 ☆ _𝙴𝙽𝚅𝙸𝙰𝙽𝙳𝙾 ${additionalText}, 𝙴𝚂𝙿𝙴𝚁𝙴 𝚄𝙽𝙾𝚂 𝚂𝙴𝙶𝚄𝙽𝙳𝙾𝚂．．．_`.trim()
 await conn.sendMessage(m.chat, { text: texto1, contextInfo: { externalAdReply: { title: yt_play[0].title, body: wm, thumbnailUrl: yt_play[0].thumbnail, mediaType: 1, showAdAttribution: true, renderLargerThumbnail: true }}} , { quoted: m })
 
-if (command == 'play') {        
+if (command == 'play|شغل|اغنيه|اغنية|مهرجان') {        
 try {
 let q = '128kbps'
 let v = yt_play[0].url
@@ -104,7 +104,7 @@ await conn.reply(m.chat, '📢 *Ocurrió un error*', m, ) }}}
 return conn.reply(m.chat, '📢 *Inténtelo de nuevo*', m, )}
 
 }
-handler.help = ['play', 'play2']
+handler.help = ['play2', 'اغنية']
 handler.tags = ['descargas']
 handler.command = /^play2?$/i
 
