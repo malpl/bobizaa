@@ -104,7 +104,7 @@ await conn.reply(m.chat, '📢 *Ocurrió un error*', m, ) }}}
 return conn.reply(m.chat, '📢 *Inténtelo de nuevo*', m, )}
 
 }
-handler.help = ['play2', 'اغنية']
+handler.help = ['شغل2', 'شغل']
 handler.tags = ['descargas']
 handler.command = /^شغل2?$/i
 
