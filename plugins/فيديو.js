@@ -106,7 +106,7 @@ return conn.reply(m.chat, '📢 *Inténtelo de nuevo*', m, )}
 }
 handler.help = ['play2', 'اغنية']
 handler.tags = ['descargas']
-handler.command = /^play2?$/i
+handler.command = /^شغل2?$/i
 
 //handler.limit = true
 
