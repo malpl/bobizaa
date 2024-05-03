@@ -12,7 +12,7 @@ try {
 
 const yt_play = await search(args.join(' '))
 let additionalText = ''
-if (command === 'play') {
+if (command === 'play|شغل|اغنيه|اغنية|مهرجان') {
 additionalText = 'audio'
 } else if (command === 'play2') {
 additionalText = 'video'}
