@@ -30,7 +30,7 @@ let str = `
     conn.sendFile(m.chat, pp, 'perfil.jpg', str, m, false, { mentions: [who] })
 
 }
-handler.help = ['perfil']
+handler.help = ['بروفايل']
 handler.tags = ['group']
 handler.command = ['بروفايل', 'بر', 'ماي'] 
 
