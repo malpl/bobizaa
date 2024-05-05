@@ -32,7 +32,7 @@ function handler(m, { text }) {
   }))
 }
 handler.help = ['خط']
-handler.tags = ['V E N O M']
+handler.tags = ['الزغرفه']
 handler.command =  /^(خط|كيب)$/i
 
 export default handler
