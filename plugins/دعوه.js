@@ -10,7 +10,7 @@ let link = 'https://chat.whatsapp.com/' + await conn.groupInviteCode(group)
         m.reply(`*تــم ارســال رابــط الـدعـوه !*`) 
 
 }
-handler.help = ['invite <20xxx>']
+handler.help = ['دعوه']
 handler.tags = ['group']
 handler.command = ['دعوة','دعوه'] 
 handler.group = true
