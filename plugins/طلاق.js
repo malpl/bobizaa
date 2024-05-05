@@ -9,7 +9,7 @@ m.reply(`*${toM(a)}, طلاقها بالتلته لو عندك دم😂*
 *${toM(b)},*متزعليش\n\*هجوزك مالك 🥺*`, null, {
 mentions: [a, b]
 })}
-handler.help = ['formarpareja']
+handler.help = ['طلاق']
 handler.tags = ['main', 'fun']
 handler.command = ['الطلاق','طلاق']
 handler.group = true
