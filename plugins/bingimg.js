@@ -41,7 +41,7 @@ export const handler = async (m, { conn, args, usedPrefix, command }) => {
  await m.reply(`${error}\n\n${error.message}`);
  }
 };
-handler.help = ["bingimg"]
+handler.help = ["تخيل"]
 handler.tags = ["drawing"];
-handler.command = ["bingimg"];
+handler.command = ["تخيل"];
 export default handler
