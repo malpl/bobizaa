@@ -24,9 +24,9 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
     if (res) conn.sendFile(m.chat, res, 'tts.opus', null, m, true)
   }
 }
-handler.help = ['tts <lang> <task>']
+handler.help = ['انطق']
 handler.tags = ['tools']
-handler.command = ['tts', 'انطق'] 
+handler.command = ['قول', 'انطق'] 
 
 export default handler
 
@@ -42,4 +42,4 @@ function tts(text, lang = 'en-en') {
       })
     } catch (e) { reject(e) }
   })
-}
+      }
