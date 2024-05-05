@@ -32,8 +32,8 @@ let handler = async (m, { conn, text }) => {
     }
 }
 
-handler.help = ['sleep']
+handler.help = ['نام']
 handler.tags = ['tools']
-handler.command = /^(sleep)$/i
+handler.command = /^(نام)$/i
 
 export default handler;
