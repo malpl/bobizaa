@@ -23,6 +23,5 @@ handler.tags = ['owner']
 handler.command = /^(مخفي)$/i
 
 handler.group = true
-handler.admin = true
 
 export default handler
