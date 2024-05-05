@@ -58,9 +58,9 @@ ${usedPrefix}اوامر
       throw `البوت داخل المجموعه`
       }
 }
-handler.help = ['join <chat.whatsapp.com> <dias>']
+handler.help = ['انضم']
 handler.tags = ['owner']
-handler.command = ['join', 'أدخل'] 
+handler.command = ['انضم', 'أدخل'] 
 
 //handler.owner = true
 
