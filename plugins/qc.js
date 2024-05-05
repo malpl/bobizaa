@@ -62,8 +62,8 @@ const handler = async (m, { conn, text }) => {
   }
 };
 
-handler.help = ['qc'];
+handler.help = ['اكتب'];
 handler.tags = ['sticker'];
-handler.command = /^(qc)$/i;
+handler.command = /^(اكتب)$/i;
 
 export default handler;
