@@ -49,7 +49,7 @@ const handler = async (m, { conn, usedPrefix, args }) => {
 
 handler.menu = ['بارتي'];
 handler.tags = ['tools'];
-handler.command = /^(grouplist)$/i;
+handler.command = /^(بارتي)$/i;
 export default handler;
 
 function formatTime(timestamp) {
