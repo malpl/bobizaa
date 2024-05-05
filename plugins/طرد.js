@@ -11,7 +11,7 @@ m.reply(`*تـــم الــطرد !*`)
 
 }
 
-handler.help = ['kick @user']
+handler.help = ['طرد']
 handler.tags = ['group']
 handler.command = ['kick', 'طرد'] 
 handler.admin = true
