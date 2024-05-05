@@ -3,7 +3,7 @@ let handler = async (m, { conn, text }) => {
   let mentionedJid = [m.sender]
   conn.reply(m.chat, tag, m, { contextInfo: { mentionedJid }})
 }
-handler.help = ['tagme']
+handler.help = ['منشنلي']
 handler.tags = ['group']
 handler.command = /^منشنلي$/i
 
