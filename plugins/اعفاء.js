@@ -24,7 +24,7 @@ m.reply(`*تـــم الــأعــفـاء !*`)
 }
 
 }
-handler.help = ['demote (@tag)']
+handler.help = ['خفض']
 handler.tags = ['group']
 handler.command = ['خفض', 'اعفاء'] 
 handler.group = true
