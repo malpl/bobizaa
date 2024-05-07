@@ -20,8 +20,8 @@ conn.sendMessage(m.chat, { text: zoro.result }, { quoted: m })
 } else throw `*الرجاء الرد علي صوره\n\n*مثال*\n${usedPrefix + command} اخبرني بالمعلومات`
   
 }
-handler.help = ['ZORO']
-handler.tags = ['ZORO']
+handler.help = ['شوف']
+handler.tags = ['يشرح اي حاجه في الصوره']
 handler.command = /^(شوف|bardimage)$/i
 
 export default handler
