@@ -39,9 +39,9 @@ delete global.videoList;
     await m.reply('*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾 𝙲𝙾𝙽 𝙾𝚃𝚁𝙾 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*');
   }
 };
-handler.help = ['فيد'];
+handler.help = ['فيو'];
 handler.tags = ['search'];
-handler.command = /^فيد|playlist2$/i;
+handler.command = /^فيو|فيور$/i;
 
 
 export default handler;
