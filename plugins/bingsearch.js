@@ -20,22 +20,22 @@ ${usedPrefix + command} FACEBOOK`
   conn.sendMessage(m.chat, {text: bing, contextInfo:
 					{
 	"externalAdReply": {
-							"title": 'BOBIZA BING SEARCHING',
+							"title": 'malik BING SEARCHING',
 							"body": '',
 							"showAdAttribution": true,
 							"mediaType": 1,
 							"sourceUrl": '',
-							"thumbnailUrl": 'https://telegra.ph/file/3a22a7e5574face2c6eca.png',
+							"thumbnailUrl": 'https://telegra.ph/file/f79a37d8a61d83336a721.jpg',
 							"renderLargerThumbnail": true
 
 						}
 					}}, {quoted: m})
 					}).catch(err => {
-					m.reply('حذث خطأ حاول لاحقا او راسل\ninstagram.com/noureddine_ouafy')
+					m.reply('حذث خطأ حاول لاحقا او راسل\https://wa.me/+201030825867')
 					})
 }
-handler.help = ['bingsearch']
+handler.help = ['بحث']
 handler.tags = ['search']
-handler.command = /^bingsearch$/i
+handler.command = /^بحث$/i
 handler.limit = false
 export default handler
