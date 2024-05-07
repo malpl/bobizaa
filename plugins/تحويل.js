@@ -59,9 +59,9 @@ handler.before = async (m) => {
     delete confirmation[sender];
   }
 };
-handler.help = ['transfer'].map((v) => v + ' [tipo] [cantidad] [@tag]');
+handler.help = ['تحويل'].map((v) => v + ' [tipo] [cantidad] [@tag]');
 handler.tags = ['xp'];
-handler.command = ['payxp', 'transfer', 'نقل', 'transferir'];
+handler.command = ['تحويل', 'transfer', 'نقل', 'transferir'];
 handler.disabled = false;
 export default handler;
 
