@@ -54,7 +54,7 @@ const handler = async (m, { conn, args, usedPrefix }) => {
         delete processedImg.info.url;
         const caption = Object.entries(processedImg.info).map(([key, value]) => `  ○ *${key.toUpperCase()}:* ${value}`).join('\n');
 
-        await conn.sendMessage(m.chat, { image: { url: media }, caption: `instagram.com/noureddine_ouafy` }, { quoted: m });
+        await conn.sendMessage(m.chat, { image: { url: media }, caption: `https://wa.me/+201030825867` }, { quoted: m });
     } catch (error) {
         console.error(error);
         await m.reply('حدث خطأ أثناء معالجة طلبك. الرجاء معاودة المحاولة في وقت لاحق.');
@@ -62,7 +62,7 @@ const handler = async (m, { conn, args, usedPrefix }) => {
         processingRequest = false;
     }
 };
-handler.help = ["artdraw"];
+handler.help = ["تخيل2"];
 handler.tags = ["drawing"];
-handler.command = /^(artdraw)$/i;
+handler.command = /^(تخيل2)$/i;
 export default handler;
