@@ -27,6 +27,7 @@ const handler = async (m, {conn, text, groupMetadata}) => {
 };
 handler.command = /^(اذاعه)$/i;
 handler.owner = true;
+handler.group = true;
 export default handler;
 function msToTime(duration) {
   const milliseconds = parseInt((duration % 1000) / 100);
