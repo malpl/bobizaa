@@ -11,7 +11,8 @@ let top = `*هــل ${text}*
 
 *الــأجــابـه :* ${x}`.trim()
 conn.sendFile (m.reply (top, null, { mentions: [a]}))}
-handler.help = handler.command = ['هل']
+handler.help = ['هل']
+handler.command = ['هل']
 handler.tags = ['fun']
 handler.group = true
 handler.limit = 0
