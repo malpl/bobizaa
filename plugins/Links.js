@@ -245,7 +245,7 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
   )
 }
 handler.help = ['en', 'dis'].map(v => v + 'able <option>')
-handler.tags = ['config']
+handler.tags = ['منع الروابط']
 handler.command = /^((en|dis)able|(turn)?o(n|ff)|[01])$/i
 
 export default handler
