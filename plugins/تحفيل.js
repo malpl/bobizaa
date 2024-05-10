@@ -3,8 +3,9 @@ const handler = async (m, { conn, command, text }) => {
   const isHighLove = lovePercentage >= 50;
   const loveDescription = isHighLove ? "" : "";
   const getRandomMessage = (messages) => messages[Math.floor(Math.random() * messages.length)];
-  const response =
-"تعلا يبن المتناكه",
+  const response = "تعلا يبن المتناكه",
+  async function loading() {
+var hawemod = [
 " خد يبني انت",
 " انت ي كلبجي",
 " خد ي كليجي ي علق",
