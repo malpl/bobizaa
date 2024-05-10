@@ -20,7 +20,7 @@ const handler = async (m, { conn, command, text }) => {
 " انت ياض",
 " يامسخرة",
 " ملكش فيها",
-" خالص ياض"
+" خالص ياض",
 ]
    let { key } = await conn.sendMessage(m.chat, {text: `تعلا يبني`, mentions: conn.parseMention(response)}, {quoted: m})
  for (let i = 0; i < hawemod.length; i++) {
