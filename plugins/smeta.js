@@ -19,9 +19,9 @@ let handler = async (m, { conn, text }) => {
     else throw 'وقع خطأ'
   }
 }
-handler.help = ["ملصق بدون حقوق"]
+handler.help = ["ملصق_بدون_حقوق"]
 handler.tags = ["sticker"]
-handler.command = /^(ملصق بدون حقوق)$/i
+handler.command = /^(ملصق_بدون_حقوق)$/i
 export default handler
 
 async function addExif(buffer, packname, author, categories = [''], extra = {}) {
