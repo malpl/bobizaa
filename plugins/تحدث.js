@@ -20,7 +20,7 @@ await m.reply(eror)
 }
 handler.help = ["تحدث"]
 handler.tags = ["internet"]
-handler.command = /^(تحدث|gpt)$/i
+handler.command = /^(تحدث|بوت)$/i
 export default handler
 
 /* New Line */
