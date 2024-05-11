@@ -48,9 +48,9 @@ let handler = async (m, {
         }
 
 }
-handler.help = ['ملصق مميز']
+handler.help = ['ملصق_مميز']
 handler.tags = ['sticker']
-handler.command = /^ملصق مميز$/i
+handler.command = /^ملصق_مميز$/i
 
 export default handler
 
