@@ -19,9 +19,9 @@ let handler = async (m, { conn, text }) => {
     else throw 'وقع خطأ'
   }
 }
-handler.help = ["smeta"]
+handler.help = ["ملصق بدون حقوق"]
 handler.tags = ["sticker"]
-handler.command = /^(smeta)$/i
+handler.command = /^(ملصق بدون حقوق)$/i
 export default handler
 
 async function addExif(buffer, packname, author, categories = [''], extra = {}) {
