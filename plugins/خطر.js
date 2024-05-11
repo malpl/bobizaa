@@ -48,8 +48,8 @@ let text
     if (stiker) return conn.sendFile(m.chat, stiker, 'Quotly.webp', '', m)
 }
 
-handler.help = ['خطر']
+handler.help = ['مالك']
 handler.tags = ['sticker']
-handler.command = /^(خطر)$/i
+handler.command = /^(مالك)$/i
 
 export default handler
