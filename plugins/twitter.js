@@ -23,7 +23,7 @@ await conn.sendFile(m.chat, tweetVideoUrl, 'error.mp4', txt1, fkontak)
 console.log(e)
 }}
 
-handler.help = ["twitter"]
+handler.help = ["تويتر"]
 handler.tags = ["downloader"]
-handler.command = /^(twitter)$/i
+handler.command = /^(تويتر)$/i
 export default handler
