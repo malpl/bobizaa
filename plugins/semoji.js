@@ -9,7 +9,7 @@ var handler = async (m, { conn, args, usedPrefix, command }) => {
     const jadi = await sticker.toBuffer()
     await conn.sendFile(m.chat, jadi, 'sticker.webp', '', m)
   }
-handler.help = ['semoji']
+handler.help = ['موج']
 handler.tags = ['sticker'] 
-handler.command = /^(semoji)$/i
+handler.command = /^(موج)$/i
 export default handler
