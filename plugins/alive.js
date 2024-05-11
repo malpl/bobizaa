@@ -28,8 +28,7 @@ let handler = async (m, { conn }) => {
         fileName: "vn.mp3",
         waveform: [100, 0, 100, 0, 100, 0, 100]
     }, {
-        quoted: m
-    })
+      
 }
       
 handler.help = ['alive']
