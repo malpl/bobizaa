@@ -19,7 +19,7 @@ let handler = async (m, { conn }) => {
 *─[𝑩𝑶𝑻⃟☣️𝑴𝑨𝑳𝑰𝑲🍷🇰🇼]*💜✨
 `.trim()
   m.reply(caption)
-  audio: {
+ audio: {
             url: "bobizaramadhan.mp3"
         },
         seconds: 65,
@@ -28,6 +28,9 @@ let handler = async (m, { conn }) => {
         fileName: "vn.mp3",
         waveform: [100, 0, 100, 0, 100, 0, 100]
     }, {
+        quoted: m
+    })
+}
       
 handler.help = ['alive']
 handler.tags = ['infobot']
