@@ -61,9 +61,9 @@ let handler = async (m, {
         await m.reply('error')
     }
 }
-handler.help = ['snapchat']
+handler.help = ['سناب شات']
 handler.tags = ['downloader']
-handler.command = /^snapchat$/i
+handler.command = /^سناب شات$/i
 export default handler
 
 async function getSnapchatVideo(url) {
