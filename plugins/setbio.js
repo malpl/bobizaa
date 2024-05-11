@@ -7,9 +7,9 @@ let handler = async (m, { conn, text }) => {
       throw 'Yah Error.. :D'
     }
 }
-handler.help = ['setbio']
+handler.help = ['بايو']
 handler.tags = ['owner']
-handler.command = /^(setbio)$/i
+handler.command = /^(بايو)$/i
 handler.owner = true
 
 export default handler
