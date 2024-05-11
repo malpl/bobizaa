@@ -215,7 +215,7 @@ let handler = async (m, {
 ]
   let readMore = String.fromCharCode(8206).repeat(4001);
 
-  let query = `تحويل اي نص لتعليق صوتي\n\nمثال:\n*.streame* 130|مرحبا\n\nلائحة المعلقين حسب اللغات \n\n` + readMore + lister.map((item, index) => "  " + (index + 1) + ". " + item).join("\n");
+  let query = `تحويل اي نص لتعليق صوتي\n\nمثال:\n*.انطق* 130|مرحبا\n\nلائحة المعلقين حسب اللغات \n\n` + readMore + lister.map((item, index) => "  " + (index + 1) + ". " + item).join("\n");
   let text
   if (args.length >= 1) {
       text = args.slice(0).join(" ")
