@@ -5,7 +5,7 @@ import axios from 'axios';
 const handler = async (m, {command, usedPrefix, conn, text}) => {
   if (!text) throw `*[❗]هاذا الامر خاص  بي تنزيل الفيديوهات او الاغاني عن طريق الاسم او الرابط تقدر تجيب الرابط من اوامر البحث في البوت*\n *~𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 ~*\n\n*—◉ مـثـال:*\n*${usedPrefix + command} save your ters*`;
   try {
-    if (command == 'شغل') {
+    if (command == 'اغنيه') {
       conn.reply(m.chat, `*_ ثوني يصديقي مالك بيحبك 🧛_*`, m);
       try {
         const mediaa = await ytPlay(text);
@@ -39,7 +39,7 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
     throw '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*';
   }
 };
-handler.help = ['شغل', 'فيديو'].map((v) => v + ' <texto>');
+handler.help = ['اغنيه', 'فيديو'].map((v) => v + ' <texto>');
 handler.tags = ['downloader'];
 handler.command = ['شغل', 'فيديو'];
 export default handler;
