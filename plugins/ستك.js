@@ -5,7 +5,7 @@ let handler = async(m, { conn, text, args, usedPrefix, command }) => {
 if (!text) throw `*⊱┇تحويل كلام الي ملصق┇⊰*\n\n*⟣「مثال」*\n*◉ ${usedPrefix + command} malik♦Bot*`
 let teks = encodeURI(text)
 
-if (command == 'ستك|مالك') {
+if (command == 'ستك') {
 let a1 = await (await fetch(`https://api.erdwpe.com/api/maker/attp?text=${teks}`)).buffer()
 let a2 = await createSticker(a1, false, global.packname, global.author)
 conn.sendFile(m.chat, a2, 'sticker.webp', '', m, { asSticker: true })}
@@ -32,7 +32,7 @@ if (command == 'ستيكر') {
 conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/ttp?apikey=${lolkeysapi}&text=${teks}`, 'sticker.webp', '', m, { asSticker: true })}
     
 }
-handler.command = handler.help = ['مالك', 'ستكر2', 'ستكر3', 'ستكر4', 'ستك5', 'ستك', 'ستك2', 'ستك3']
+handler.command = handler.help = ['ستك']
 handler.tags = ['sticker']
 export default handler
 
