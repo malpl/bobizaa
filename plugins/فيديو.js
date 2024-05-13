@@ -5,8 +5,8 @@ import axios from 'axios';
 const handler = async (m, {command, usedPrefix, conn, text}) => {
   if (!text) throw `*[❗]هاذا الامر خاص  بي تنزيل الفيديوهات او الاغاني عن طريق الاسم او الرابط تقدر تجيب الرابط من اوامر البحث في البوت*\n *~𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 ~*\n\n*—◉ مـثـال:*\n*${usedPrefix + command} save your ters*`;
   try {
-    if (command == 'اغنيه') {
-      conn.reply(m.chat, `*_ 🧛 جاري التحميل مالك بيحبك💜_*`, m);
+    if (command == 'شغل') {
+      conn.reply(m.chat, `*_ ثوني يصديقي مالك بيحبك 🧛_*`, m);
       try {
         const mediaa = await ytPlay(text);
         const audiocore = mediaa.result2?.[0]?.audio || mediaa.result2?.[1]?.audio || mediaa.result2?.[2]?.audio || null;
@@ -22,7 +22,7 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
       }
     }
     if (command == 'فيديو') {
-      conn.reply(m.chat, `*_⌛جاري التحميل⏳_*`, m);
+      conn.reply(m.chat, `*_ثوني يصديقي مالك بيحبك🧛_*`, m);
       try {
         const mediaa = await ytPlayVid(text);
         const aa_2 = await conn.sendMessage(m.chat, {video: {url: mediaa.result}, fileName: `error.mp4`, caption: `*『ITACHI♦️BOT』\n انت مسؤل عن ذنوب اغانيك*`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
@@ -32,14 +32,14 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
       } catch {
         const res = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${yt_play[0].title}`);
         const json = await res.json();
-        await conn.sendFile(m.chat, json.result.video, 'error.mp4', `*『🐉┇𝙼𝙴𝙳𝙾 𝙱𝙾𝚃』\n انا لا اتحمل ذنوب اغانيك او ما تشاهده*`, m);
+        await conn.sendFile(m.chat, json.result.video, 'error.mp4', `*『🐉┇𝑴𝑨𝑳𝑰𝑲🍷🇰🇼』\n مالك بيحبك🧛*`, m);
       }
     }
   } catch {
     throw '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*';
   }
 };
-handler.help = ['play.1', 'play.2'].map((v) => v + ' <texto>');
+handler.help = ['شغل', 'فيديو'].map((v) => v + ' <texto>');
 handler.tags = ['downloader'];
 handler.command = ['شغل', 'فيديو'];
 export default handler;
