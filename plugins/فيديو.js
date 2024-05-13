@@ -25,14 +25,14 @@ const handler = async (m, {command, usedPrefix, conn, text}) => {
       conn.reply(m.chat, `*_ثوني يصديقي مالك بيحبك🧛_*`, m);
       try {
         const mediaa = await ytPlayVid(text);
-        const aa_2 = await conn.sendMessage(m.chat, {video: {url: mediaa.result}, fileName: `error.mp4`, caption: `*『ITACHI♦️BOT』\n انت مسؤل عن ذنوب اغانيك*`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
+        const aa_2 = await conn.sendMessage(m.chat, {video: {url: mediaa.result}, fileName: `error.mp4`, caption: `*『𝑴𝑨𝑳𝑰𝑲🍷🇰🇼』مالك بيحبك*`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
         if (!aa_2) {
         throw new Error('*[❗] El primero metodo fallo, intentando otro...*');
        }
       } catch {
         const res = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${yt_play[0].title}`);
         const json = await res.json();
-        await conn.sendFile(m.chat, json.result.video, 'error.mp4', `*『🐉┇𝑴𝑨𝑳𝑰𝑲🍷🇰🇼』\n مالك بيحبك🧛*`, m);
+        await conn.sendFile(m.chat, json.result.video, 'error.mp4', `*『🐉┇𝑴𝑨𝑳𝑰𝑲🍷🇰🇼』 مالك بيحبك🧛*`, m);
       }
     }
   } catch {
