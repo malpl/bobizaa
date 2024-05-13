@@ -32,6 +32,6 @@ let str = `
 }
 handler.help = ['بروفايل']
 handler.tags = ['group']
-handler.command = ['بروفايل', 'بر', 'ماي'] 
+handler.command = ['بروفايل', 'بر', 'صورته'] 
 
 export default handler
