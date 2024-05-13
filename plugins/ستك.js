@@ -2,10 +2,10 @@ import fetch from 'node-fetch'
 import { sticker, addExif } from '../lib/sticker.js'
 import { Sticker } from 'wa-sticker-formatter'
 let handler = async(m, { conn, text, args, usedPrefix, command }) => {
-if (!text) throw `*⊱┇تحويل كلام الي ملصق┇⊰*\n\n*⟣「مثال」*\n*◉ ${usedPrefix + command} GHOTI♦Bot*`
+if (!text) throw `*⊱┇تحويل كلام الي ملصق┇⊰*\n\n*⟣「مثال」*\n*◉ ${usedPrefix + command} malik♦Bot*`
 let teks = encodeURI(text)
 
-if (command == 'ستك') {
+if (command == 'ستك|مالك') {
 let a1 = await (await fetch(`https://api.erdwpe.com/api/maker/attp?text=${teks}`)).buffer()
 let a2 = await createSticker(a1, false, global.packname, global.author)
 conn.sendFile(m.chat, a2, 'sticker.webp', '', m, { asSticker: true })}
@@ -28,11 +28,11 @@ conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/ttp3?apikey=${lolkeysapi}&te
 if (command == 'ستكر2') {
 conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/ttp2?apikey=${lolkeysapi}&text=${teks}`, 'sticker.webp', '', m, { asSticker: true })}
     
-if (command == 'ستكر') {
+if (command == 'ستيكر') {
 conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/ttp?apikey=${lolkeysapi}&text=${teks}`, 'sticker.webp', '', m, { asSticker: true })}
     
 }
-handler.command = handler.help = ['ستكر', 'ستكر2', 'ستكر3', 'ستكر4', 'ستك5', 'ستك', 'ستك2', 'ستك3']
+handler.command = handler.help = ['مالك', 'ستكر2', 'ستكر3', 'ستكر4', 'ستك5', 'ستك', 'ستك2', 'ستك3']
 handler.tags = ['sticker']
 export default handler
 
