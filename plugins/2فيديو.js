@@ -1,98 +1,244 @@
+import fetch from 'node-fetch';
 import yts from 'yt-search';
-import fs from 'fs';
-const handler = async (m, {conn, text, usedPrefix, command}) => {
-  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝙻𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽 𝙵𝙰𝙻𝚃𝙰𝙽𝚃𝙴, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙼𝙰𝚂 𝙴𝙻 𝙽𝙾𝙼𝙱𝚁𝙴/𝚃𝙸𝚃𝚄𝙻𝙾 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command} Begin you*`;
+import ytdl from 'ytdl-core';
+import axios from 'axios';
+import {youtubedl, youtubedlv2} from '@bochilteam/scraper';
+import {bestFormat, getUrlDl} from '../lib/y2dl.js';
+const handler = async (m, {conn, command, args, text, usedPrefix}) => {
+  if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝙻𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽 𝙵𝙰𝙻𝚃𝙰𝙽𝚃𝙴, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙼𝙰𝚂 𝙴𝙻 𝙽𝙾𝙼𝙱𝚁𝙴/𝚃𝙸𝚃𝚄𝙻𝙾 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command} Good Feeling - Flo Rida*`;
   try {
-    const vids_ = {
-      from: m.sender,
-      urls: [],
-    };
-    if (!global.videoList) {
-      global.videoList = [];
+    const yt_play = await search(args.join(' '));
+    let additionalText = '';
+    if (command === 'play') {
+      additionalText = 'audio 🔊';
+    } else if (command === 'play2') {
+      additionalText = 'video 🎥';
     }
-    /* if (global.videoList[0]?.from == m.sender) {
-delete global.videoList;
-}*/
-    if (global.videoList[0]?.from == m.sender) {
-      global.videoList.splice(0, global.videoList.length);
+    const texto1 = `*◉——⌈🔊 YOUTUBE PLAY 🔊⌋——◉*\n
+❏ 📌 *Titulo:* ${yt_play[0].title}
+❏ 📆 *Publicado:* ${yt_play[0].ago}
+❏ ⌚ *Duracion:* ${secondString(yt_play[0].duration.seconds)}
+❏ 👀 *Vistas:* ${`${MilesNumber(yt_play[0].views)}`}
+❏ 👤 *Autor:* ${yt_play[0].author.name}
+❏ ⏯️ *Canal:* ${yt_play[0].author.url}
+❏ 🆔 *ID:* ${yt_play[0].videoId}
+❏ 🪬 *Tipo:* ${yt_play[0].type}
+❏ 🔗 *Link:* ${yt_play[0].url}\n
+❏ *_Enviando ${additionalText}, aguarde un momento．．．_*`.trim();
+    conn.sendMessage(m.chat, {image: {url: yt_play[0].thumbnail}, caption: texto1}, {quoted: m});
+    if (command == 'play') {
+      try {
+        const formats = await bestFormat(yt_play[0].url, 'audio');
+        const dl_url = await getUrlDl(formats.url);
+        const buff = await getBuffer(dl_url.download);
+        conn.sendMessage(m.chat, {audio: buff, fileName: yt_play[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
+      } catch (errors) {
+        console.log(errors);
+        try {
+          const q = '128kbps';
+          const v = yt_play[0].url;
+          const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
+          const dl_url = await yt.audio[q].download();
+          const ttl = await yt.title;
+          const size = await yt.audio[q].fileSizeH;
+          await conn.sendFile(m.chat, dl_url, ttl + '.mp3', null, m, false, {mimetype: 'audio/mp4'});
+        } catch {
+          try {
+            const dataRE = await fetch(`https://api.akuari.my.id/downloader/youtube?link=${yt_play[0].url}`);
+            const dataRET = await dataRE.json();
+            conn.sendMessage(m.chat, {audio: {url: dataRET.mp3[1].url}, fileName: yt_play[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
+          } catch {
+            try {
+              const humanLol = await fetch(`https://api.lolhuman.xyz/api/ytplay?apikey=${lolkeysapi}&query=${yt_play[0].title}`);
+              const humanRET = await humanLol.json();
+              conn.sendMessage(m.chat, {audio: {url: humanRET.result.audio.link}, fileName: yt_play[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
+            } catch {
+              try {
+                const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytaudio2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
+                const lolh = await lolhuman.json();
+                const n = lolh.result.title || 'error';
+                await conn.sendMessage(m.chat, {audio: {url: lolh.result.link}, fileName: `${n}.mp3`, mimetype: 'audio/mp4'}, {quoted: m});
+              } catch {
+                try {
+                  const searchh = await yts(yt_play[0].url);
+                  const __res = searchh.all.map((v) => v).filter((v) => v.type == 'video');
+                  const infoo = await ytdl.getInfo('https://youtu.be/' + __res[0].videoId);
+                  const ress = await ytdl.chooseFormat(infoo.formats, {filter: 'audioonly'});
+                  conn.sendMessage(m.chat, {audio: {url: ress.url}, fileName: __res[0].title + '.mp3', mimetype: 'audio/mp4'}, {quoted: m});
+                } catch {
+                  await conn.reply(m.chat, '*[❗] 𝙴𝚁𝚁𝙾𝚁 𝙽𝙾 𝙵𝚄𝙴 𝙿𝙾𝚂𝙸𝙱𝙻𝙴 𝙳𝙴𝚂𝙲𝙰𝚁𝙶𝙰𝚁 𝙴𝙻 𝙰𝚄𝙳𝙸𝙾*', m);
+                }
+              }
+            }
+          }
+        }
+      }
     }
-    const results = await yts(text);
-    const textoInfo = `*[❗] يمكنك تنزيل الفيديو الذي تريده علي النحو التالي:*
-◉ ${usedPrefix}صوت (رقم)
-◉ ${usedPrefix}فيد (رقم)
-
-*—◉ مثال:*
-*◉ ${usedPrefix}صوت 5*
-*◉ ${usedPrefix}فيد 8*`.trim();
-    const teks = results.all.map((v, i) => {
-      const link = v.url;
-      vids_.urls.push(link);
-      return `[${i + 1}] ${v.title}
-↳ 🫐 *_اللنك :_* ${v.url}
-↳ 🕒 *_المده :_* ${v.timestamp}
-↳ 📥 *_اترفع :_* ${v.ago}
-↳ 👁 *_المشاهدات :_* ${v.views}`;
-    }).join('\n\n◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦◦\n\n');
-    conn.sendFile(m.chat, results.all[0].thumbnail, 'yts.jpeg', textoInfo + '\n\n' + teks, m);
-    global.videoList.push(vids_);
+    if (command == 'play2') {
+      try {
+        const qu = '360';
+        const q = qu + 'p';
+        const v = yt_play[0].url;
+        const yt = await youtubedl(v).catch(async (_) => await youtubedlv2(v));
+        const dl_url = await yt.video[q].download();
+        const ttl = await yt.title;
+        const size = await yt.video[q].fileSizeH;
+        await await conn.sendMessage(m.chat, {video: {url: dl_url}, fileName: `${ttl}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝚃𝙸𝚃𝚄𝙻𝙾: ${ttl}\n▢ 𝙿𝙴𝚂𝙾 𝙳𝙴𝙻 𝚅𝙸𝙳𝙴𝙾: ${size}`, thumbnail: await fetch(yt.thumbnail)}, {quoted: m});
+      } catch {
+        try {
+          const mediaa = await ytMp4(yt_play[0].url);
+          await conn.sendMessage(m.chat, {video: {url: mediaa.result}, fileName: `error.mp4`, caption: `_𝐓𝐡𝐞 𝐌𝐲𝐬𝐭𝐢𝐜 - 𝐁𝐨𝐭_`, thumbnail: mediaa.thumb, mimetype: 'video/mp4'}, {quoted: m});
+        } catch {
+          try {
+            const lolhuman = await fetch(`https://api.lolhuman.xyz/api/ytvideo2?apikey=${lolkeysapi}&url=${yt_play[0].url}`);
+            const lolh = await lolhuman.json();
+            const n = lolh.result.title || 'error';
+            const n2 = lolh.result.link;
+            const n3 = lolh.result.size;
+            const n4 = lolh.result.thumbnail;
+            await conn.sendMessage(m.chat, {video: {url: n2}, fileName: `${n}.mp4`, mimetype: 'video/mp4', caption: `▢ 𝚃𝙸𝚃𝚄𝙻𝙾: ${n}\n▢ 𝙿𝙴𝚂𝙾 𝙳𝙴𝙻 𝚅𝙸𝙳𝙴𝙾: ${n3}`, thumbnail: await fetch(n4)}, {quoted: m});
+          } catch {
+            await conn.reply(m.chat, '*[❗] 𝙴𝚁𝚁𝙾𝚁 𝙽𝙾 𝙵𝚄𝙴 𝙿𝙾𝚂𝙸𝙱𝙻𝙴 𝙳𝙴𝚂𝙲𝙰𝚁𝙶𝙰𝚁 𝙴𝙻 𝚅𝙸𝙳𝙴𝙾*', m);
+          }
+        }
+      }
+    }
   } catch {
-    await m.reply('*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾 𝙲𝙾𝙽 𝙾𝚃𝚁𝙾 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*');
+    throw '*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾*';
   }
 };
-handler.help = ['فيو'];
-handler.tags = ['search'];
-handler.command = /^فيو|فيور$/i;
-
-
+handler.help = ['play', 'play2'].map((v) => v + ' < busqueda >');
+handler.tags = ['downloader'];
+handler.command = /^(play|play2)$/i;
 export default handler;
 
+async function search(query, options = {}) {
+  const search = await yts.search({query, hl: 'es', gl: 'ES', ...options});
+  return search.videos;
+}
 
-/* import { youtubeSearch } from '@bochilteam/scraper'
-let handler = async (m, { conn, args, usedPrefix, command, text }) => {
-if (!text) throw `*[❗𝐈𝐍𝐅𝐎❗] 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝙻𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽 𝙵𝙰𝙻𝚃𝙰𝙽𝚃𝙴, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝙸𝙽𝙶𝚁𝙴𝚂𝙴 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙼𝙰𝚂 𝙴𝙻 𝙽𝙾𝙼𝙱𝚁𝙴/𝚃𝙸𝚃𝚄𝙻𝙾 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*\n\n*—◉ 𝙴𝙹𝙴𝙼𝙿𝙻𝙾:*\n*${usedPrefix + command} Begin you*`
-try {
-const { video } = await youtubeSearch(text)
-const listSections = []
-let teks = [...video ].map(v => {
-switch (v.type) {
-case 'video': {
-listSections.push([`${v.title}`, [
-['Video 🎥', `${usedPrefix}ytmp4 ${v.url}`, `descargar: ${v.title} (${v.url})`],
-['Videodoc 🎥', `${usedPrefix}ytmp4doc ${v.url}`, `descargar: ${v.title} (${v.url})`],
-['Audio 🎧', `${usedPrefix}ytmp3 ${v.url}`, `descargar: ${v.title} (${v.url})`],
-['Audiodoc 🎧', `${usedPrefix}ytmp3doc ${v.url}`, `descargar: ${v.title} (${v.url})`]
-]])
-}}}).filter(v => v).join('\n\n========================\n\n')
-conn.sendList(m.sender, ' 『 𝗠𝗨𝗦𝗜𝗖𝗔 𝗥𝗘𝗟𝗔𝗖𝗜𝗢𝗡𝗔𝗗𝗔 』', `𝐌𝐮𝐬𝐢𝐜𝐚 𝐫𝐞𝐥𝐚𝐜𝐢𝐨𝐧𝐚𝐝𝐚 𝐜𝐨𝐧: ${args.join(" ")}`, '𝐄𝐥𝐢𝐣𝐚 𝐮𝐧𝐚 𝐨𝐩𝐜𝐢𝐨𝐧 𝐲 𝐩𝐫𝐞𝐜𝐢𝐨𝐧𝐞 𝐄𝐧𝐯𝐢𝐚𝐫', '[♦ 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ♦]', listSections, m)
-if (m.isGroup) return m.reply('*[❗] 𝙷𝙾𝙻𝙰 𝙴𝚂𝚃𝙸𝙼𝙰𝙳𝙾 𝚄𝚂𝚄𝙰𝚁𝙸𝙾(𝙰), 𝚂𝚄 𝙿𝙴𝙳𝙸𝙳𝙾 𝙷𝙰 𝚂𝙸𝙳𝙾 𝙴𝙽𝚅𝙸𝙰𝙳𝙾 𝙰 𝚂𝚄 𝙲𝙷𝙰𝚃 𝙿𝚁𝙸𝚅𝙰𝙳𝙾. 𝙴𝚂𝚃𝙾 𝙲𝙾𝙼𝙾 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽 𝚃𝙴𝙼𝙿𝙾𝚁𝙰𝙻 𝙰 𝙴𝚁𝚁𝙾𝚁𝙴𝚂 𝙳𝙴 𝙼𝙴𝙽𝚂𝙰𝙹𝙴𝚂 𝙲𝙾𝙽 𝙱𝙾𝚃𝙾𝙽𝙴𝚂 𝚃𝙸𝙿𝙾 𝙻𝙸𝚂𝚃𝙰, 𝚀𝚄𝙴 𝙽𝙾 𝚂𝙾𝙽 𝚅𝙸𝚂𝙸𝙱𝙻𝙴𝚂 𝙴𝙽 𝙻𝙰𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽𝙴𝚂 𝙼𝙰𝚂 𝚁𝙴𝙲𝙸𝙴𝙽𝚃𝙴𝚂 𝙳𝙴 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿*')
-} catch {
-try {
-let get_result = await fetchJson(`https://api.lolhuman.xyz/api/ytsearch?apikey=${lolkeysapi}&query=${text}`)
-let get_result2 = get_result.result
-const listSerch = []
-const listSerch2 = []
-const listSerch3 = []
-const listSerch4 = []
-let teskd = `𝐌𝐮𝐬𝐢𝐜𝐚 𝐫𝐞𝐥𝐚𝐜𝐢𝐨𝐧𝐚𝐝𝐚 𝐜𝐨𝐧: ${args.join(" ")}`
-const sections = [{ title: `|－－－－－{ ＡＵＤＩＯ }－－－－－|`, rows: listSerch }, { title: `|－－－－－{ ＶＩＤＥＯ }－－－－－|`, rows: listSerch2 }, { title: `|－－{ ＤＯＣＵＭＥＮＴＯ  ＭＰ３ }－－|`, rows: listSerch3 }, { title: `|－－{ ＤＯＣＵＭＥＮＴＯ  ＭＰ４ }－－|`, rows: listSerch4 }]
-for (let x of get_result2) {
-listSerch.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp3 https://www.youtube.com/watch?v=${x.videoId}`})
-listSerch2.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp4 https://www.youtube.com/watch?v=${x.videoId}`})
-listSerch3.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp3doc https://www.youtube.com/watch?v=${x.videoId}`})
-listSerch4.push({title: x.title, description: null, rowId: `${usedPrefix}ytmp4doc https://www.youtube.com/watch?v=${x.videoId}`})}
-const listMessage = { text: teskd, footer: '𝐄𝐥𝐢𝐣𝐚 𝐮𝐧𝐚 𝐨𝐩𝐜𝐢𝐨𝐧 𝐲 𝐩𝐫𝐞𝐜𝐢𝐨𝐧𝐞 𝐄𝐧𝐯𝐢𝐚𝐫', title: " 『 𝗠𝗨𝗦𝗜𝗖𝗔 𝗥𝗘𝗟𝗔𝗖𝗜𝗢𝗡𝗔𝗗𝗔 』", buttonText: "[♦ 𝐑𝐄𝐒𝐔𝐋𝐓𝐀𝐃𝐎𝐒 ♦]", sections }
-conn.sendMessage(m.sender, listMessage, { quoted: m })
-if (m.isGroup) return m.reply('*[❗] 𝙷𝙾𝙻𝙰 𝙴𝚂𝚃𝙸𝙼𝙰𝙳𝙾 𝚄𝚂𝚄𝙰𝚁𝙸𝙾(𝙰), 𝚂𝚄 𝙿𝙴𝙳𝙸𝙳𝙾 𝙷𝙰 𝚂𝙸𝙳𝙾 𝙴𝙽𝚅𝙸𝙰𝙳𝙾 𝙰 𝚂𝚄 𝙲𝙷𝙰𝚃 𝙿𝚁𝙸𝚅𝙰𝙳𝙾. 𝙴𝚂𝚃𝙾 𝙲𝙾𝙼𝙾 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽 𝚃𝙴𝙼𝙿𝙾𝚁𝙰𝙻 𝙰 𝙴𝚁𝚁𝙾𝚁𝙴𝚂 𝙳𝙴 𝙼𝙴𝙽𝚂𝙰𝙹𝙴𝚂 𝙲𝙾𝙽 𝙱𝙾𝚃𝙾𝙽𝙴𝚂 𝚃𝙸𝙿𝙾 𝙻𝙸𝚂𝚃𝙰, 𝚀𝚄𝙴 𝙽𝙾 𝚂𝙾𝙽 𝚅𝙸𝚂𝙸𝙱𝙻𝙴𝚂 𝙴𝙽 𝙻𝙰𝚂 𝚅𝙴𝚁𝚂𝙸𝙾𝙽𝙴𝚂 𝙼𝙰𝚂 𝚁𝙴𝙲𝙸𝙴𝙽𝚃𝙴𝚂 𝙳𝙴 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿*')
-} catch {
-await m.reply('*[❗𝐈𝐍𝐅𝐎❗] 𝙴𝚁𝚁𝙾𝚁, 𝙿𝙾𝚁 𝙵𝙰𝚅𝙾𝚁 𝚅𝚄𝙴𝙻𝚅𝙰 𝙰 𝙸𝙽𝚃𝙴𝙽𝚃𝙰𝚁𝙻𝙾 𝙲𝙾𝙽 𝙾𝚃𝚁𝙾 𝙽𝙾𝙼𝙱𝚁𝙴 𝙳𝙴 𝚄𝙽𝙰 𝙲𝙰𝙽𝙲𝙸𝙾𝙽*')
-}}}
-handler.command = /^playlist|playlist2$/i
-export default handler
-async function fetchJson(url, options) {
-try {
-options ? options : {}
-const res = await axios({ method: 'GET', url: url, headers: {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36'}, ...options })
-return res.data
-} catch (err) {
-return err
-}}*/
+function MilesNumber(number) {
+  const exp = /(\d)(?=(\d{3})+(?!\d))/g;
+  const rep = '$1.';
+  const arr = number.toString().split('.');
+  arr[0] = arr[0].replace(exp, rep);
+  return arr[1] ? arr.join('.') : arr[0];
+}
+
+function secondString(seconds) {
+  seconds = Number(seconds);
+  const d = Math.floor(seconds / (3600 * 24));
+  const h = Math.floor((seconds % (3600 * 24)) / 3600);
+  const m = Math.floor((seconds % 3600) / 60);
+  const s = Math.floor(seconds % 60);
+  const dDisplay = d > 0 ? d + (d == 1 ? ' día, ' : ' días, ') : '';
+  const hDisplay = h > 0 ? h + (h == 1 ? ' hora, ' : ' horas, ') : '';
+  const mDisplay = m > 0 ? m + (m == 1 ? ' minuto, ' : ' minutos, ') : '';
+  const sDisplay = s > 0 ? s + (s == 1 ? ' segundo' : ' segundos') : '';
+  return dDisplay + hDisplay + mDisplay + sDisplay;
+}
+
+function bytesToSize(bytes) {
+  return new Promise((resolve, reject) => {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return 'n/a';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+    if (i === 0) resolve(`${bytes} ${sizes[i]}`);
+    resolve(`${(bytes / (1024 ** i)).toFixed(1)} ${sizes[i]}`);
+  });
+}
+
+async function ytMp3(url) {
+  return new Promise((resolve, reject) => {
+    ytdl.getInfo(url).then(async (getUrl) => {
+      const result = [];
+      for (let i = 0; i < getUrl.formats.length; i++) {
+        const item = getUrl.formats[i];
+        if (item.mimeType == 'audio/webm; codecs=\"opus\"') {
+          const {contentLength} = item;
+          const bytes = await bytesToSize(contentLength);
+          result[i] = {audio: item.url, size: bytes};
+        }
+      }
+      const resultFix = result.filter((x) => x.audio != undefined && x.size != undefined);
+      const tiny = await axios.get(`https://tinyurl.com/api-create.php?url=${resultFix[0].audio}`);
+      const tinyUrl = tiny.data;
+      const title = getUrl.videoDetails.title;
+      const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
+      resolve({title, result: tinyUrl, result2: resultFix, thumb});
+    }).catch(reject);
+  });
+}
+
+async function ytMp4(url) {
+  return new Promise(async (resolve, reject) => {
+    ytdl.getInfo(url).then(async (getUrl) => {
+      const result = [];
+      for (let i = 0; i < getUrl.formats.length; i++) {
+        const item = getUrl.formats[i];
+        if (item.container == 'mp4' && item.hasVideo == true && item.hasAudio == true) {
+          const {qualityLabel, contentLength} = item;
+          const bytes = await bytesToSize(contentLength);
+          result[i] = {video: item.url, quality: qualityLabel, size: bytes};
+        }
+      }
+      const resultFix = result.filter((x) => x.video != undefined && x.size != undefined && x.quality != undefined);
+      const tiny = await axios.get(`https://tinyurl.com/api-create.php?url=${resultFix[0].video}`);
+      const tinyUrl = tiny.data;
+      const title = getUrl.videoDetails.title;
+      const thumb = getUrl.player_response.microformat.playerMicroformatRenderer.thumbnail.thumbnails[0].url;
+      resolve({title, result: tinyUrl, rersult2: resultFix[0].video, thumb});
+    }).catch(reject);
+  });
+}
+
+async function ytPlay(query) {
+  return new Promise((resolve, reject) => {
+    yts(query).then(async (getData) => {
+      const result = getData.videos.slice( 0, 5 );
+      const url = [];
+      for (let i = 0; i < result.length; i++) {
+        url.push(result[i].url);
+      }
+      const random = url[0];
+      const getAudio = await ytMp3(random);
+      resolve(getAudio);
+    }).catch(reject);
+  });
+}
+
+async function ytPlayVid(query) {
+  return new Promise((resolve, reject) => {
+    yts(query).then(async (getData) => {
+      const result = getData.videos.slice( 0, 5 );
+      const url = [];
+      for (let i = 0; i < result.length; i++) {
+        url.push(result[i].url);
+      }
+      const random = url[0];
+      const getVideo = await ytMp4(random);
+      resolve(getVideo);
+    }).catch(reject);
+  });
+}
+
+const getBuffer = async (url, options) => {
+  try {
+    options ? options : {};
+    const res = await axios({
+      method: 'get',
+      url,
+      headers: {
+        'DNT': 1,
+        'Upgrade-Insecure-Request': 1,
+      },
+      ...options,
+      responseType: 'arraybuffer',
+    });
+
+    return res.data;
+  } catch (e) {
+    console.log(`Error : ${e}`);
+  }
+};
+                                           
