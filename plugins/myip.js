@@ -17,8 +17,8 @@ let handler = async (m, {
                     })
                 })
 }
-handler.help = ['myip']
+handler.help = ['ip']
 handler.tags = ['owner']
-handler.command = /^(myip)$/i
+handler.command = /^(ip)$/i
 handler.owner= true
 export default handler
