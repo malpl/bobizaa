@@ -16,7 +16,7 @@ const defaultMenu = {
   header: '╭─────≼ %category ≽',
   body: '╎≡ %cmd',
   footer: '╰┄┄┄┄┄┄┄┄┄┄┄┄┄〢',
-  after: 'BOBIZA 👑',
+  after: 'malik 👑',
 }
 let handler = async (m, { conn, usedPrefix: _p, __dirname, args, command}) => {
 let tags = {
@@ -189,9 +189,9 @@ let tags = {
     throw e
   }
 }
-handler.help = ['menu-applications']
+handler.help = ['قسم-بالتطبيقات']
 handler.tags = ['categorie']
-handler.command = /^menu-applications$/i
+handler.command = /^قسم-بالتطبيقات$/i
 export default handler
 //----------- FUNCTION -------
 function pickRandom(list) {
