@@ -1,11 +1,11 @@
 let handler = async (m, { conn }) => {
 
 m.reply(`*قناتي على الواتساب:*\n
-*https://whatsapp.com/channel/0029VaLopUxFnSz7D2CH9S0P*
+*https://chat.whatsapp.com/CUyxsz7kb7nCJLIocNoGeC 🧛💜*
 *تابعني هناك♥*`)
 }
-handler.help = ['channel']
+handler.help = ['رومي']
 handler.tags = ['infobot']
-handler.command = /^(channel)$/i
+handler.command = /^(رومي)$/i
 
 export default handler;
