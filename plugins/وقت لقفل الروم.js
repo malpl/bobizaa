@@ -38,9 +38,9 @@ const handler = async (m, {conn, isAdmin, isOwner, args, usedPrefix, command}) =
     }, timeoutset);
   }
 };
-handler.help = ['اعدادات'];
+handler.help = ['وقت-البار'];
 handler.tags = ['group'];
-handler.command = /^(اعدادات|gctime)$/i;
+handler.command = /^(وقت-البار|gctime)$/i;
 
 handler.botAdmin = true;
 handler.group = true;
