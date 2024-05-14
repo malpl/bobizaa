@@ -37,9 +37,9 @@ let handler = async (m, { conn, command, usedPrefix }) => {
  }
 }
 
-handler.help = ['تغير بروفيل البوت']
+handler.help = ['تغير-بروفيل-البوت']
 handler.tags = ['owner']
-handler.command = /^(تغير بروفيل البوت)$/i
+handler.command = /^(تغير-بروفيل-البوت)$/i
 
 handler.owner = true
 
