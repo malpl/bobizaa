@@ -10,7 +10,7 @@ import fetch from 'node-fetch';
     }
   });
   let res = `https://api.lolhuman.xyz/api/photooxy2/tiktok?apikey=Gatadios&text1=${response[0]}&text2=${response[1]}`;
-  conn.sendFile(m.chat, res, 'bobiza.jpg', `مالك بيحبك`, m, false);
+  conn.sendFile(m.chat, res, 'malik.jpg', `مالك بيحبك `, m, false);
 }
 
 handler.help = ['تيك']
