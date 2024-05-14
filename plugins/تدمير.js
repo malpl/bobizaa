@@ -34,5 +34,5 @@ const handler = async (m, {conn, args, groupMetadata, participants, usedPrefix, 
   }
 };
 handler.command = /^(قائمه-ارقام|تدمير)$/i;
-handler.group = handler.admin = handler.admin = true;
+handler.group = handler.admin = true;
 export default handler;
