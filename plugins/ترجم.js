@@ -24,7 +24,7 @@ await m.reply('*تفضل هذه ترجمتك سيدي \:* ' + result2)
 } catch { 
 await m.reply('*مشكلة أعد المحاولة لاحقا *')    
 }}}
-handler.help = ["translate"]
+handler.help = ["ترجم"]
 handler.tags = ["tools"]
 handler.command = /^(ترجم|tr)$/i
 export default handler
