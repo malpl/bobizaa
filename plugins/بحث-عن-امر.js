@@ -22,9 +22,9 @@ let handler = async (m, { conn, isROwner, usedPrefix, command, text }) => {
 		if (stderr.trim()) m.reply(stderr);
 	}
 };
-handler.help = ["getplugin"];
+handler.help = ["بحث-عن-امر"];
 handler.tags = ['owner'];
-handler.command = /^(getplugin|gp)$/i;
+handler.command = /^(بحث-عن-امر|gp)$/i;
 handler.rowner = true;
 
 export default handler;
