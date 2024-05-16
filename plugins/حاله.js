@@ -66,9 +66,9 @@ let handler = async (m, { conn, command, args }) => {
   }
 };
 
-handler.help = ['tostatus']
+handler.help = ['حاله']
 handler.tags = ["owner"];
-handler.command = ['tostatus']
+handler.command = ['حاله']
 handler.owner = true
 export default handler;
 
