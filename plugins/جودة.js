@@ -18,7 +18,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "dehaze");
-					conn.sendFile(m.chat, This, "", " instagram.com/noureddine_ouafy ...", m);
+					conn.sendFile(m.chat, This, "", " malik ...", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -44,7 +44,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "recolor");
-					conn.sendFile(m.chat, This, "", " instagram.com/noureddine_ouafy ...", m);
+					conn.sendFile(m.chat, This, "", " malik ...", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -70,7 +70,7 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 				let error;
 				try {
 					const This = await processing(img, "enhance");
-					conn.sendFile(m.chat, This, "", " instagram.com/noureddine_ouafy ...", m);
+					conn.sendFile(m.chat, This, "", " malik ...", m);
 				} catch (er) {
 					error = true;
 				} finally {
@@ -83,9 +83,9 @@ let handler = async (m, { conn, usedPrefix, command }) => {
 			break;
 	}
 };
-handler.help = ["dehaze","recolor","hd"];
+handler.help = ["dehaze","recolor","hd","جوده"];
 handler.tags = ["image-edit"];
-handler.command = ["dehaze","recolor","hd"];
+handler.command = ["dehaze","recolor","hd","جودة","جوده"];
 export default handler;
 
 async function processing(urlPath, method) {
