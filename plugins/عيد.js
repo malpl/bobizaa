@@ -12,8 +12,8 @@ const handler = async (m, { conn, args, text, command, usedPrefix, isCreator, is
   let res = `https://api.lolhuman.xyz/api/idulfitri?apikey=Gatadios&text=${response[0]}`;
   conn.sendFile(m.chat, res, 'idulfitri.jpg', 'instagram.com/noureddine_ouafy', m, false);
 };
-handler.help = ['aidfitr'];
+handler.help = ['عيد'];
 handler.tags = ['logo'];
-handler.command = /^(aidfitr)$/i;
+handler.command = /^(عيد)$/i;
 
 export default handler;
