@@ -245,5 +245,5 @@ let handler = async (m, {
 }
 handler.help = ["انطق"]
 handler.tags = ["audio-changer"]
-handler.command = /^(انطق|قول)$/i
+handler.command = /^(قول)$/i
 export default handler
