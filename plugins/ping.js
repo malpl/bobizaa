@@ -6,6 +6,5 @@ let handler = async (m, { conn }) => {
   let text_ping = `${ini_latensi.toFixed(4)}`;
   conn.reply(m.chat, text_ping);
 };
-handler.command = ["بينج"];
-
+handler.command = /^(بينج|سرعه|السرعه|ping)$/i
 export default handler;
