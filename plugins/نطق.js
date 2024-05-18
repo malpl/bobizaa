@@ -15,14 +15,14 @@ try { res = await tts(text, lang) }
 catch (e) {
 m.reply(e +'')
 text = args.join('')
-if (!text) throw `تحويل نص لاوديو مثال \n *.tts بوبيز أحسن بوت في العالم*`
+if (!text) throw `تحويل نص لاوديو مثال \n *.انطق بوت مالك *`
 res = await tts(text, defaultLang)
 } finally {
 if (res) conn.sendFile(m.chat, res,  'tts.opus', null, m, true)
 }}
-handler.help = ['tts <lang> <teks>']
+handler.help = ['انطق']
 handler.tags = ['tools']
-handler.command = /^g?audio$/i
+handler.command = /^انطق$/i
 export default handler
 function tts(text, lang ='ar') {
 console.log(lang, text)
