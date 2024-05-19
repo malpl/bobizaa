@@ -36,7 +36,7 @@ const handler = async function(m, {conn, text, usedPrefix, command}) {
   global.db.data.users[m.sender].money += 10000;
   global.db.data.users[m.sender].exp += 10000;
 };
-handler.help = ['تفعيل'];
+handler.help = ['تسجيل'];
 handler.tags = ['xp'];
-handler.command = /^(verify|register|تفعيل|reg|registrar)$/i;
+handler.command = /^(verify|register|تسجيل|reg|registrar)$/i;
 export default handler;
