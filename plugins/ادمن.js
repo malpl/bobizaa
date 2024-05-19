@@ -29,5 +29,4 @@ handler.command = /^(ترقية|ترقيه|رفع|ادمن|رول|مشرف)$/i
 handler.group = true
 handler.owner = true
 handler.botAdmin = true
-handler.fail = null
 export default handler
