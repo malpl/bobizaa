@@ -115,9 +115,9 @@ let handler = async (m, { conn, usedPrefix, command, args, isOwner, isAdmin, isR
       chat.viewStory = isEnable
       break
 
-    case 'antilink':
-    case 'antilinkwa':
-    case 'antilinkwha':
+    case 'تفعيل-الروابط':
+    case 'تفعيل-الروابطwa':
+    case 'تفعيل-الروابطwha':
       if (m.isGroup) {
         if (!(isAdmin || isOwner)) {
           global.dfail('admin', m, conn)
