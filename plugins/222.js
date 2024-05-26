@@ -12,7 +12,7 @@ let handler = async (m, { conn }) => {
  
 }
       
-handler.help = ['alive']
+handler.help = ['2كراش']
 handler.tags = ['infobot']
 handler.command = /^(كراش2)$/i
 
