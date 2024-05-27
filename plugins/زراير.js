@@ -4,10 +4,24 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '*مالك بيحبك🦹💜*'
+              title: '╭────────────────────
+│🦹 هاي يا , ${conn.getName(m.sender)}!
+:› PẻⱢấy GaMẻ ~🧛
+*೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
+│🧛 مالك بيحبك  ✔️ البوت أون لاين الآن 
+يمكنك إستخدامه عبر كتابة menu.
+*೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
+ ده رقمي الاساسي بس طاير 🧛💜
+ https://wa.me/+201030825867
+*೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
+  ده الروم بتاعي 🧛💜
+ https://chat.whatsapp.com/CUyxsz7kb7nCJLIocNoGeC 🧛💜
+ *೫ༀༀༀༀༀༀ𝑴𝑨𝑳𝑰𝑲ༀༀༀༀༀༀༀお*
+ › FẻNŚsh GaMẻ ~🧛
+╰────────────────────'
             },
             body: {
-              text: '😎 افتح القائمة بواسطة الزر\n🧛 𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 \n   https://wa.me/+201030825867 '
+              text: '😎 افتح القائمة بواسطة الزر\n🧛 𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 \n https://wa.me/+201030825867 '
             },
             nativeFlowMessage: {
               buttons: [
