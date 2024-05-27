@@ -4,33 +4,33 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '*قـائـمـة الـاوامــر*'
+              title: '*مالك بيحبك🦹💜*'
             },
             body: {
-              text: '🛡️ افتح القائمة بواسطة الزر\n⚡ لا تلعب كثير في القائمة'
+              text: '😎 افتح القائمة بواسطة الزر\n🧛 𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 \n   https://wa.me/+201030825867 '
             },
             nativeFlowMessage: {
               buttons: [
                 {
                   name: 'single_select',
                   buttonParamsJson: JSON.stringify({
-                    title: 'دوس هنا ',
+                    title: 'دوس هنا صديقي 🧛',
                     sections: [
                       {
                         title: 'قوائم البوت',
                         highlight_label: 'اختار',
                         rows: [
                           {
-                            header: 'منشن ',
-                            title: '.منشن',
+                            header: 'فوتوشوب',
+                            title: '.الفوتوشوب',
                             description: '',
-                            id: '.منشن'
+                            id: '.الفوتوشوب'
                           },
                           {
-                            header: 'قسم الاوامر',
-                            title: '.المهام',
+                            header: 'قسم الاستيكرات',
+                            title: '.استيكرات',
                             description: '',
-                            id: 'te'
+                            id: '.استيكرات'
                           }
                         ]
                       }
@@ -47,8 +47,8 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
 
 }
 
-handler.help = ['info']
+handler.help = ['مميزات']
 handler.tags = ['main']
-handler.command = ['قايمه']
+handler.command = ['مميزات']
 
 export default handler
