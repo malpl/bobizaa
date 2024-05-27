@@ -4,7 +4,7 @@ let handler = async (m, { conn, args, usedPrefix, command }) => {
         message: {
           interactiveMessage: {
             header: {
-              title: '🦹 هاي يا , ${conn.getName(m.sender)}!'
+              title: '🦹 هاي يا , ${conn.getName(m.sender)}!
             },
             body: {
               text: '😎 افتح القائمة بواسطة الزر\n🧛 𝑴𝑨𝑳𝑰𝑲🍷🇰🇼 \n   https://wa.me/+201030825867 '
